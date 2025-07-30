@@ -1,10 +1,5 @@
 @import "tailwindcss";
 
-@theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-}
-
 html,
 body {
   @apply bg-white dark:bg-gray-950;
@@ -13,3 +8,7 @@ body {
     color-scheme: dark;
   }
 }
+
+/* .font-cursive { */
+/*   font-family: "Cedarville Cursive", cursive; */
+/* } */
