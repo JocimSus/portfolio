@@ -1,15 +1,17 @@
 import { Link } from "react-router";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin, faSquareGithub } from "@fortawesome/free-brands-svg-icons";
+import { faCopyright } from "@fortawesome/free-regular-svg-icons";
 
 const navLinks = [
   { label: "portfolio", 
     to: "/portfolio" ,
     children: [
       { label: "server", to: "/portfolio/server" },
+      { label: "projects", to: "/portfolio/projects" }
     ],
   },
-  { label: "about", to: "/about"},
+  { label: "contact", to: "/contact"},
 ];
 
 const socials = [
@@ -19,17 +21,20 @@ const socials = [
 
 export function Navbar() {
   return (
-    <header className="fixed top-0 left-0 h-screen w-[220px] bg-linear-to-br from-orange-700 to-red-500 pt-10 pl-7 pr-10 font-mono">
+    <header className="fixed top-0 left-0 h-screen w-[220px] bg-night-dark3 pt-10 pl-7 pr-10">
       <div className="flex flex-col h-full">
         <Link to="/" className="flex flex-col items-center mb-3">
-          <img src="https://mad.s-ul.eu/63pecYaC.gif" />
-          <div className="font-bold">the box</div>
+          <img src="https://mad.s-ul.eu/63pecYaC.gif" loading="lazy" alt="logo"/>
+          <div className="font-bold text-sm">the box</div>
         </Link>
         <div className="flex flex-col h-full">
           <nav>
             <ul className="leading-6">
               {navLinks.map((item) => (
-                <li>
+                <li key={item.to}>
+                  {item.children ? (
+                  <span>{item.label}</span>
+                  ) : (
                   <Link
                     key={item.to}
                     to={item.to}
@@ -37,6 +42,7 @@ export function Navbar() {
                     {item.label}
                   </Link>
 
+                  )}
                   {item.children && (
                     <ul className="ml-6">
                       {item.children.map((child) => (
@@ -68,7 +74,10 @@ export function Navbar() {
                 ))} 
               </ul>
             </div>
-            <div className="text-xs">© jocimsus, 2025</div>
+            <div className="text-xs">
+              <FontAwesomeIcon icon={faCopyright} size="sm"/>
+              jocimsus, 2025
+            </div>
           </div>
         </div>
       </div>

@@ -11,20 +11,22 @@ import { Navbar } from "./components/navbar";
 import type { Route } from "./+types/root";
 import "./app.css";
 
+// TODO:
+// 1. Change mouse
+// 2. UI will be similar to MD
+// 3. About, techstack will be in a grid
+
+// prevents fontawesome flickering
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import { config } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
+
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
     rel: "preconnect",
     href: "https://fonts.gstatic.com",
     crossOrigin: "anonymous",
-  },
-  {
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
-  },
-  {
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap",
   },
 ];
 
