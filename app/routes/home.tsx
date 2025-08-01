@@ -18,6 +18,8 @@ const techStack = [
       { name: "javascript", icon: "/icons/javascript.svg" },
       { name: "typescript", icon: "/icons/typescript.svg" },
       { name: "nix", icon: "/icons/nix.svg" },
+      { name: "rust", icon: "/icons/rust.svg" },
+      { name: "c++", icon: "/icons/cpp.svg" },
     ],
   },
   {
@@ -27,12 +29,15 @@ const techStack = [
       { name: "next-js", icon: "/icons/next-js.svg" },
       { name: "vite-js", icon: "/icons/vitejs.svg" },
       { name: "react-router", icon: "/icons/react-router.svg" },
+      { name: "pytorch", icon: "/icons/pytorch.svg" },
     ],
   },
    {
     type: "libraries",
     items: [
       { name: "react", icon: "/icons/react.svg" },
+      { name: "threejs", icon: "/icons/threejs.svg" },
+      { name: "pygame", icon: "/icons/pygame.svg" },
     ],
   }, {
     type: "databases",
@@ -47,7 +52,7 @@ const techStack = [
 
 export default function Home() {
   return (
-    <main className="ml-[230px] mr-10 pl-7 pt-11">
+    <main className="ml-[230px] mr-20 pl-7 pt-11">
       <MDBlock>
         <H1>about me!</H1>
         <div className="whitespace-pre-wrap mb-7">
@@ -58,40 +63,24 @@ export default function Home() {
           I've been trying to learn more about networking and selfhosting by making a website and selfhosting it on my NixOS server.
         </div>
         <H1>my techstack</H1>
-        <div className="text-center text-sm">
-          {techStack.map((section, i) => (
-            <table key={i} className="w-full table-fixed mb-5">
-              <thead>
-                <tr>
-                  <th
-                    colSpan={section.items.length}
-                    className="bg-night-dark2 py-3 text-lg tracking-wide"
+        <div className="space-y-8 mt-4">
+          {techStack.map((section) => (
+            <div key={section.type} className="bg-night-dark2 rounded-lg p-6">
+              <h2 className="text-xl font-semibold text-center mb-4 uppercase tracking-wide">
+                {section.type}
+              </h2>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                {section.items.map((item) => (
+                  <div
+                    key={item.name}
+                    className="flex flex-col items-center space-y-2"
                   >
-                    {section.type}
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  {section.items.map((item, j) => (
-                    <td key={j} className="py-4 align-top">
-                      <div className="flex justify-center">
-                        <img src={item.icon} className="w-[77px]"/>
-                      </div>
-                    </td>
-                  ))}
-                </tr>
-                <tr>
-                  {section.items.map((item, j) => (
-                    <td key={j} className="pb-4 text-sm align-top">
-                      <div className="flex justify-center">
-                        {item.name}
-                      </div>
-                    </td>
-                  ))}
-                </tr>
-              </tbody>
-            </table>
+                    <img src={item.icon} className="w-16 h-16" />
+                    <span className="text-sm text-center">{item.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </MDBlock>
