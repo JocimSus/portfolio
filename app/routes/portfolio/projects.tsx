@@ -1,3 +1,4 @@
+import type { Route } from "../portfolio/+types/projects";
 import { useEffect, useState } from "react";
 import { Octokit } from "@octokit/rest";
 import { MDBlock, H1 } from "../../components/markdownhelper";
@@ -7,6 +8,13 @@ interface Repo {
   name: string;
   html_url: string;
   description: string | null;
+}
+
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "projects" },
+    { name: "description", content: "what i have done!" },
+  ];
 }
 
 const pickRepos = [

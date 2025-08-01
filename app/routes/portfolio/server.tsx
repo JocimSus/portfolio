@@ -1,6 +1,14 @@
+import type { Route } from "../portfolio/+types/server";
 import { useEffect, useState } from "react";
 import { Octokit } from "@octokit/rest";
 import { MDBlock, H1 } from "../../components/markdownhelper";
+
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "the server" },
+    { name: "description", content: "proudest achievement so far" },
+  ];
+}
 
 interface Repo {
   id: number;

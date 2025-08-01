@@ -4,7 +4,7 @@ import { MDBlock, H1 } from "../components/markdownhelper";
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "about me" },
-    { name: "description", content: "what i do!" },
+    { name: "description", content: "what i do" },
   ];
 }
 
@@ -54,7 +54,7 @@ export default function Home() {
   return (
     <main className="ml-7 mt-7 mb-7 lg:mt-0 lg:ml-[230px] mr-20 pl-7 pt-11">
       <MDBlock>
-        <H1>about me!</H1>
+        <H1>about me</H1>
         <div className="whitespace-pre-wrap mb-7">
           Hello! I'm Joachim, an 18 year old from Ind*nesia, i like computers and onomatopoeias. <br/>
           I'm into selfhosting, sysadmin, and reading non-academic literature. <br/>

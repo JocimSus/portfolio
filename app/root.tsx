@@ -11,12 +11,6 @@ import { Navbar } from "./components/navbar";
 import type { Route } from "./+types/root";
 import "./app.css";
 
-// TODO:
-// 1. Change mouse
-// 2. UI will be similar to MD
-// 3. About, techstack will be in a grid
-// 4. dont forget to mention github ci cd
-
 // prevents fontawesome flickering
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { config } from "@fortawesome/fontawesome-svg-core";

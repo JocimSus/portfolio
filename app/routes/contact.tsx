@@ -1,4 +1,12 @@
+import type { Route } from "./+types/contact";
 import { MDBlock, H1 } from "../components/markdownhelper";
+
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "contact me" },
+    { name: "description", content: "my contact info" },
+  ];
+}
 
 export default function About() {
   return (
