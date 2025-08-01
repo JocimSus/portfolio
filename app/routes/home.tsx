@@ -52,7 +52,7 @@ const techStack = [
 
 export default function Home() {
   return (
-    <main className="ml-[230px] mr-20 pl-7 pt-11">
+    <main className="ml-7 mt-7 mb-7 lg:mt-0 lg:ml-[230px] mr-20 pl-7 pt-11">
       <MDBlock>
         <H1>about me!</H1>
         <div className="whitespace-pre-wrap mb-7">

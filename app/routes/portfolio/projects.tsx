@@ -44,14 +44,14 @@ export default function Projects() {
   }, []);
 
   return (
-    <div className="ml-[230px] mr-20 pl-7 pt-11">
+    <div className="ml-7 mt-7 mb-7 lg:mt-0 lg:ml-[230px] mr-20 pl-7 pt-11">
       <MDBlock>
         <H1>my projects</H1>
         These repos below are my projects that I have built
       </MDBlock>
 
       {loading ? (
-        <p className="mt-4">Loading selected repos…</p>
+        <p className="mt-4">Loading repos</p>
       ) : (
         <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {repos.map((repo) => (

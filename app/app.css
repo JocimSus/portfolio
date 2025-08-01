@@ -10,6 +10,10 @@
   --color-day-light3: #e5e4d9;
 }
 
+@utility no-scrollbar {
+  @apply [scrollbar-width:none] [&::-webkit-scrollbar]:hidden;
+}
+
 html,
 body {
   @apply bg-day-light1 dark:bg-night-dark1 font-mono;

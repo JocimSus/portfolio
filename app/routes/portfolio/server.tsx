@@ -38,7 +38,7 @@ export default function Server() {
   }, []);
 
   return (
-    <div className="ml-[230px] mr-20 pl-7 pt-11">
+    <div className="ml-7 mt-7 mb-7 lg:mt-0 lg:ml-[230px] mr-20 pl-7 pt-11">
       <MDBlock>
         <H1>the server</H1>
         I love my home server. i use it to host websites that i use everyday, those being my <a href="https://books.224668.xyz" className="underline">book library</a>, 
@@ -49,7 +49,7 @@ export default function Server() {
         This github repo also features github <b>CI/CD</b> to build my nix flakes for my personal laptop and also my server :)
 
         {loading ? (
-          <p className="mt-4">Loading selected repos…</p>
+          <p className="mt-4">Loading repo</p>
         ) : (
           <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {repos.map((repo) => (
