@@ -25,22 +25,33 @@ export default function Projects() {
 
   useEffect(() => {
     const octokit = new Octokit();
-    Promise.all(
-      pickRepos.map(({ owner, repo }) =>
-        octokit.repos.get({ owner, repo }).then(r => r.data)
-      )
-    )
-      .then((datas) => {
-        const formatted: Repo[] = datas.map((d) => ({
-          id: d.id,
-          name: d.name,
-          html_url: d.html_url,
-          description: d.description,
-        }));
-        setRepos(formatted);
-      })
-      .catch((e) => console.error(e))
-      .finally(() => setLoading(false));
+    
+    const fetchRepos = async () => {
+      try {
+        const { data } = await octokit.repos.listForUser({
+          username: "JocimSus",
+          per_page: 100,
+        });
+
+        const selectedRepos = new Set(pickRepos.map(r => r.repo));
+        
+        const filtered = data
+          .filter(repo => selectedRepos.has(repo.name))
+          .map(repo => ({
+            id: repo.id,
+            name: repo.name,
+            html_url: repo.html_url,
+            description: repo.description,
+          }));
+
+        setRepos(filtered);
+      } catch (error) {
+        console.error("Failed to fetch repos: ", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchRepos();
   }, []);
 
   return (
@@ -62,7 +73,6 @@ export default function Projects() {
               <a
                 href={repo.html_url}
                 target="_blank"
-                rel="noopener noreferrer"
                 className="text-lg font-semibold hover:underline"
               >
                 {repo.name}
